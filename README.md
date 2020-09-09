@@ -4,12 +4,12 @@ Ce dépôt contient une mini-application pour le P3 du parcours **Grande École 
 
 # Pour exécuter et compiler l' appli:
 
-1- Récupérez le lien de ce répertoire Github
-2- Lancez Android Studio
-3- Au niveau de la fenêtre "Welcome", choississez "Get from Version Control"
-4- Renseignez le lien Github
-5- Valider
-6- Executez sur votre Hardware Emulator locale
+- Récupérez le lien de ce répertoire Github
+- Lancez Android Studio
+- Au niveau de la fenêtre "Welcome", choississez "Get from Version Control"
+- Renseignez le lien Github
+- Valider
+- Executez sur votre Hardware Emulator locale
 
 # Notes sur le code:
 
