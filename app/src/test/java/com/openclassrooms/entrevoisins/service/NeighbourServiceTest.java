@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
+import static org.junit.Assert.assertTrue;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
@@ -21,10 +22,14 @@ import static org.junit.Assert.assertThat;
 public class NeighbourServiceTest {
 
     private NeighbourApiService service;
+    private NeighbourApiService mService;
+
 
     @Before
     public void setup() {
+
         service = DI.getNewInstanceApiService();
+        mService = DI.getNeighbourApiService();
     }
 
     @Test
@@ -39,5 +44,22 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
+    }
+
+    @Test
+    public void addFavorite(){
+        //ajout d un favorie
+        mService.getFavorites().add(mService.getNeighbours().get(0));
+        assertTrue(mService.getFavorites().size()== 1);
+
+    }
+
+    @Test
+    public void removeFavorite(){
+        //effacement d un favorie
+        mService.getFavorites().remove(mService.getNeighbours().get(0));
+        assertTrue(mService.getFavorites().isEmpty());
+
+
     }
 }

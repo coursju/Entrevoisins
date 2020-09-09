@@ -99,7 +99,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
      */
     String randomImage() {
         //le serveur de pravastar ne repond pas ou plus, donc pour la presentation, un lien en dur
-        return "https://uifaces.co//our-content//donated//IEmncemM.jpg";//https://i.pravatar.cc/150?u="+ System.currentTimeMillis();
+        return "https://images.pexels.com//photos//774909//pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&h=350";//https://i.pravatar.cc/150?u="+ System.currentTimeMillis();
     }
 
     /**
