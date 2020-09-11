@@ -41,35 +41,25 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
     android.support.v7.widget.Toolbar toolbar;
 
-
     private Neighbour neighbour;
     String fragment;
     int position;
-
-
-
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_neighbour);
         ButterKnife.bind(this);
-         this.position = getIntent().getExtras().getInt("position");
-         this.fragment = getIntent().getExtras().getString("fragment");
-
-         Log.e("fragment = ", fragment);
-
-         this.neighbour = fragmentType(fragment, position);
-
-
+        this.position = getIntent().getExtras().getInt("position");
+        this.fragment = getIntent().getExtras().getString("fragment");
+        Log.e("fragment = ", fragment);
+        this.neighbour = fragmentType(fragment, position);
 
         //toolbar
         toolbar.setBackgroundColor(Color.TRANSPARENT);
-
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         updateView();
 
@@ -81,17 +71,13 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
                     DI.getNeighbourApiService().deleteFavorite(neighbour);
                     addFavorite.setColorFilter(Color.GRAY);
                     Toast.makeText(getApplicationContext(),R.string.remove_favorite,Toast.LENGTH_SHORT).show();
-
                 }else{DI.getNeighbourApiService().createFavorite(neighbour);
                     addFavorite.setColorFilter(Color.MAGENTA);
                     Toast.makeText(getApplicationContext(),R.string.add_favorite,Toast.LENGTH_SHORT).show();
-
                 }
             }
         });
-
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -110,7 +96,6 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
     private void updateView(){
         Glide.with(detailsAvatar.getContext())
                 .load(neighbour.getAvatarUrl())
-                //.apply(RequestOptions.circleCropTransform())
                 .into(detailsAvatar);
         this.detailsHeaderName.setText(neighbour.getName());
         this.detailsName.setText(neighbour.getName());
@@ -140,19 +125,13 @@ public class DetailsNeighbourActivity extends AppCompatActivity {
      */
     private Neighbour fragmentType(String fragment, int position){
         switch(fragment) {
-
             case "Neighbour":
                 Log.e(".........", "ca entre");
                 return DI.getNeighbourApiService().getNeighbours().get(position);
-
             case "Favorite":
                 return DI.getNeighbourApiService().getFavorites().get(position);
-
             default:
                 return null;
-
         }
-
     }
-
 }

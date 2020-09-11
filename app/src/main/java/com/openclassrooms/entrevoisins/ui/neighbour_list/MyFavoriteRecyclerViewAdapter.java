@@ -50,15 +50,11 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
-
-
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     EventBus.getDefault().post(new DeleteFavoriteEvent(neighbour));
                     Log.e("listFavorite del","element dans list enleve");
-
-
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +64,8 @@ public class MyFavoriteRecyclerViewAdapter extends RecyclerView.Adapter<MyFavori
                 Log.e("position click", " : "+holder.getAdapterPosition() );
                 Intent intent = new Intent(context.getApplicationContext(), DetailsNeighbourActivity.class);
                 intent.putExtra("position", holder.getAdapterPosition() );
-
-                    intent.putExtra("fragment", "Favorite" );
-                    Log.e("neighbour type detail:","Favorite");
-
+                intent.putExtra("fragment", "Favorite" );
+                Log.e("neighbour type detail:","Favorite");
                 context.startActivity(intent);
             }
         });

@@ -45,7 +45,16 @@ public class Neighbour {
         this.web = "www.facebook.com/"+name;
     }
 
-    /* Ajout d' un 2ieme constructeur prenant l' attribut Web */
+    /**
+     * Constructor with extra
+     * @param id
+     * @param name
+     * @param avatarUrl
+     * @param address
+     * @param phoneNumber
+     * @param web
+     * @param aboutMe
+     */
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String web, String aboutMe) {
         this.id = id;

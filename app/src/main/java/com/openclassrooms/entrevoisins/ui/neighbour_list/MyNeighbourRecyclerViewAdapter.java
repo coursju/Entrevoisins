@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
+import com.openclassrooms.entrevoisins.events.DeleteFavoriteEvent;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.ui.neighbour_details.DetailsNeighbourActivity;
@@ -50,13 +52,15 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 .load(neighbour.getAvatarUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(holder.mNeighbourAvatar);
-
-
         holder.mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     EventBus.getDefault().post(new DeleteNeighbourEvent(neighbour));
                     Log.e("listNeighbour del","element dans list enleve");
+                    if(DI.getNeighbourApiService().getFavorites().contains(neighbour)) {
+                        EventBus.getDefault().post(new DeleteFavoriteEvent(neighbour));
+                        Log.e("listFavorite del", "element dans list enleve");
+                    }
             }
         });
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -66,11 +70,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
                 Log.e("position click", " : "+holder.getAdapterPosition() );
                 Intent intent = new Intent(context.getApplicationContext(), DetailsNeighbourActivity.class);
                 intent.putExtra("position", holder.getAdapterPosition() );
-
-                    intent.putExtra("fragment", "Neighbour" );
-                    Log.e("neighbour type detail:","Neighbour");
-
-
+                intent.putExtra("fragment", "Neighbour" );
+                Log.e("neighbour type detail:","Neighbour");
                 context.startActivity(intent);
             }
         });

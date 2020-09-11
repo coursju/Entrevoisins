@@ -6,14 +6,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/neighbours_details"
-    android:background="#BCDBDF"
-    >
+    android:background="#BCDBDF">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -86,9 +83,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="50dp"
                 android:drawableStart="@drawable/localisation_img"
-                android:drawablePadding="5dp"
-                />
-
+                android:drawablePadding="5dp" />
 
             <TextView
                 android:id="@+id/details_phone"
@@ -99,8 +94,6 @@
                 android:drawableStart="@drawable/phone_img"
                 android:drawablePadding="5dp"/>
 
-
-
             <TextView
                 android:id="@+id/details_web"
                 android:layout_width="wrap_content"
@@ -109,8 +102,7 @@
                 android:layout_marginTop="150dp"
                 android:drawableStart="@drawable/ic_connection"
                 android:drawablePadding="5dp"
-                android:paddingBottom="5dp"
-                />
+                android:paddingBottom="5dp" />
 
         </android.support.v7.widget.CardView>
 

@@ -23,11 +23,9 @@ import java.util.List;
 
 public class FavoriteFragment extends Fragment {
 
-
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
-
 
     /**
      * Create and return a new instance

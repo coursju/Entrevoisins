@@ -24,7 +24,6 @@ public class NeighbourServiceTest {
     private NeighbourApiService service;
     private NeighbourApiService mService;
 
-
     @Before
     public void setup() {
 
@@ -48,18 +47,13 @@ public class NeighbourServiceTest {
 
     @Test
     public void addFavorite(){
-        //ajout d un favorie
         mService.getFavorites().add(mService.getNeighbours().get(0));
         assertTrue(mService.getFavorites().size()== 1);
-
     }
 
     @Test
     public void removeFavorite(){
-        //effacement d un favorie
         mService.getFavorites().remove(mService.getNeighbours().get(0));
         assertTrue(mService.getFavorites().isEmpty());
-
-
     }
 }

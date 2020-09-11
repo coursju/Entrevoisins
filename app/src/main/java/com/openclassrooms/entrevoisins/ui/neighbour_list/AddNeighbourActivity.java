@@ -76,7 +76,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
                 addButton.setEnabled(s.length() > 0);
             }
         });
-
     }
 
     @OnClick(R.id.create)
@@ -98,8 +97,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
      * @return String
      */
     String randomImage() {
-        //le serveur de pravastar ne repond pas ou plus, donc pour la presentation, un lien en dur
-        return "https://images.pexels.com//photos//774909//pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&h=350";//https://i.pravatar.cc/150?u="+ System.currentTimeMillis();
+        return "https://images.pexels.com//photos//774909//pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&h=350";
     }
 
     /**
